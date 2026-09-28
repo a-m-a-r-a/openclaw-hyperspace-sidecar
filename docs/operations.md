@@ -30,6 +30,15 @@ rebuild the TypeScript bundle and manifest, run tests, then activate through
 supported host tooling. Do not widen the owner scope as part of an update.
 Keep collection, profileScope, statePath, HMAC key and user identity unchanged.
 
+For migration from the private predecessor, first materialize **all effective
+settings**, including values inherited from its source-code defaults, into the
+private host configuration. In particular, explicitly set `host`, `collection`,
+`statePath` and `rpcTimeout`. Copying only previously authored configuration can
+silently select the new localhost endpoint, a different collection or ledger.
+Never put deployment-specific values into the public source tree. Compare the
+effective old and new configuration before activation; candidate bridge tests
+with manually supplemented settings do not verify the host's captured config.
+
 A one-shot bridge imports Python dependencies on every call, so replacing its
 provider package takes effect on the next invocation. New tool schemas, TypeScript
 code and captured config still need plugin reload / controlled Gateway restart.

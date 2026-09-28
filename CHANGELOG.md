@@ -33,6 +33,8 @@ First public, configurable source distribution of the previously private adapter
 Existing installations must explicitly configure their original profile scope,
 curator label, owner sessions and transport choice. Preserve collection, ledger,
 HMAC key and identity. Defaults are intentionally not a migration of private state.
+Also materialize inherited `host`, `collection`, `statePath` and `rpcTimeout`
+before activation; see the effective-configuration migration check in operations.
 
 ## 0.1.0 — private predecessor
 

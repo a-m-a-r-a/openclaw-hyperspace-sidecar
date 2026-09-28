@@ -1,0 +1,42 @@
+{
+  "name": "openclaw-plugin-hyperspace-lab-sidecar",
+  "version": "0.2.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "init:secrets": "node scripts/init-secrets.mjs",
+    "plugin:build": "npm run build && openclaw plugins build --entry ./dist/index.js",
+    "plugin:validate": "npm run build && openclaw plugins validate --entry ./dist/index.js",
+    "test": "vitest run --config ./vitest.config.ts"
+  },
+  "files": [
+    "dist",
+    "python",
+    "scripts",
+    "openclaw.plugin.json",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "openclaw": ">=2026.9.6"
+  },
+  "dependencies": {
+    "typebox": "^1.1.38"
+  },
+  "devDependencies": {
+    "openclaw": "2026.9.6",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "openclaw": {
+    "extensions": [
+      "./dist/index.js"
+    ]
+  },
+  "license": "MIT",
+  "description": "Scoped OpenClaw adapter for the Hermes HyperspaceDB provider with curated memory and bounded cognitive geometry",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a-m-a-r-a/openclaw-hyperspace-sidecar.git"
+  }
+}

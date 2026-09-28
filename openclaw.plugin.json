@@ -1,0 +1,134 @@
+{
+  "id": "hyperspace-lab-sidecar",
+  "name": "Hyperspace Lab Sidecar",
+  "description": "Explicit, isolated HyperspaceDB lab tools backed by the Hermes provider.",
+  "version": "0.2.0",
+  "configSchema": {
+    "type": "object",
+    "required": [
+      "host",
+      "collection",
+      "userId",
+      "secretEnvFile",
+      "statePath",
+      "pythonPath",
+      "rpcTimeout",
+      "prefetchEnabled",
+      "prefetchRpcTimeout",
+      "prefetchMaxChars",
+      "prefetchTopK",
+      "prefetchDirectOnly",
+      "agentId",
+      "allowedSessionKeys",
+      "reflectionSessionPrefixes",
+      "profileScope",
+      "curatorLabel",
+      "allowInsecureRemote"
+    ],
+    "properties": {
+      "host": {
+        "type": "string",
+        "default": "127.0.0.1:50051"
+      },
+      "collection": {
+        "type": "string",
+        "default": "openclaw-memory"
+      },
+      "userId": {
+        "type": "string",
+        "default": ""
+      },
+      "secretEnvFile": {
+        "type": "string",
+        "default": "~/.openclaw/secrets/hyperspace.env",
+        "description": "0600 env file containing HYPERSPACE_API_KEY and HYPERSPACE_OWNERSHIP_HMAC_KEY."
+      },
+      "statePath": {
+        "type": "string",
+        "default": "~/.openclaw/data/hyperspace-sidecar/ledger.sqlite3"
+      },
+      "pythonPath": {
+        "type": "string",
+        "default": ""
+      },
+      "rpcTimeout": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 300,
+        "default": 120
+      },
+      "prefetchEnabled": {
+        "type": "boolean",
+        "default": false
+      },
+      "prefetchRpcTimeout": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 30,
+        "default": 10
+      },
+      "prefetchMaxChars": {
+        "type": "number",
+        "minimum": 500,
+        "maximum": 10000,
+        "default": 3000
+      },
+      "prefetchTopK": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 20,
+        "default": 5
+      },
+      "prefetchDirectOnly": {
+        "type": "boolean",
+        "default": true
+      },
+      "agentId": {
+        "type": "string",
+        "default": "main"
+      },
+      "allowedSessionKeys": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "reflectionSessionPrefixes": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "default": []
+      },
+      "profileScope": {
+        "type": "string",
+        "default": "openclaw-memory"
+      },
+      "curatorLabel": {
+        "type": "string",
+        "default": "owner"
+      },
+      "allowInsecureRemote": {
+        "type": "boolean",
+        "default": false
+      },
+      "maxDistance": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "additionalProperties": false
+  },
+  "activation": {
+    "onStartup": true
+  },
+  "contracts": {
+    "tools": [
+      "hyperspace_lab_status",
+      "hyperspace_lab_search",
+      "hyperspace_lab_store",
+      "hyperspace_lab_cognitive"
+    ]
+  }
+}

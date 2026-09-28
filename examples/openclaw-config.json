@@ -1,0 +1,36 @@
+{
+  "plugins": {
+    "load": {
+      "paths": [
+        "/absolute/path/to/openclaw-hyperspace-sidecar"
+      ]
+    },
+    "entries": {
+      "hyperspace-lab-sidecar": {
+        "enabled": true,
+        "config": {
+          "host": "127.0.0.1:50051",
+          "collection": "openclaw-memory",
+          "userId": "",
+          "secretEnvFile": "~/.openclaw/secrets/hyperspace.env",
+          "statePath": "~/.openclaw/data/hyperspace-sidecar/ledger.sqlite3",
+          "pythonPath": "",
+          "rpcTimeout": 120,
+          "prefetchEnabled": false,
+          "prefetchRpcTimeout": 10,
+          "prefetchMaxChars": 3000,
+          "prefetchTopK": 5,
+          "prefetchDirectOnly": true,
+          "agentId": "main",
+          "allowedSessionKeys": [
+            "OWNER_SESSION_KEY"
+          ],
+          "reflectionSessionPrefixes": [],
+          "profileScope": "openclaw-memory",
+          "curatorLabel": "owner",
+          "allowInsecureRemote": false
+        }
+      }
+    }
+  }
+}

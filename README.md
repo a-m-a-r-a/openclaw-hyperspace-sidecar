@@ -22,6 +22,7 @@ OpenClaw scoped tools / optional prompt recall
 - [Operations, verification, upgrade and rollback](docs/operations.md)
 - [Compatibility and known limitations](docs/compatibility.md)
 - [Changelog](CHANGELOG.md)
+- [Verification evidence](docs/verification.md)
 - [Provider cognitive semantics](https://github.com/a-m-a-r-a/hermes-hyperspacedb-provider/blob/main/docs/cognitive.md)
 
 ## What is exposed
